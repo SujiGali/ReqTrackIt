@@ -1,0 +1,128 @@
+﻿@using ReqTrackit.website.Models.ReqTrackModel
+@model ReqTrackit.website.Models.ViewModels.SubmitRequestViewModel
+
+@{
+    ViewBag.Title = "Index";
+    var db = new ReqTrackEnities();
+}
+
+
+<h2 align="center">Submit the Nuget package request</h2>
+<div class="row">
+    @{
+        if (ViewBag.Message != null)
+        {
+            @ViewBag.Message
+
+        }
+    }
+    <div class="col-md-26">
+        <section id="requestForm">
+            @using (Html.BeginForm("SubmitRequest", "Request", new {ReturnUrl = ViewBag.ReturnUrl}, FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+            {
+                @Html.AntiForgeryToken()
+                <hr/>
+                @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+                <div class="form-group">
+                    @Html.LabelFor(m => m.RequestTypeId, new {@class = "col-md-5 control-label"})
+                    <div class="col-md-6">
+                        @{
+                            var requests = db.request_type.ToList();
+                            var list = new SelectList(requests, "Id", "Name");
+
+                            @Html.DropDownListFor(i => i.RequestTypeId, list, new {@class = "form-control"})
+                            @Html.ValidationMessageFor(m => m.RequestTypeId, "", new {@class = "text-danger"})
+                        }
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.PackageId, new {@class = "col-md-5 control-label"})
+                    <div class="col-md-6">
+                        @{
+                            var packages = db.package_details.ToList();
+                            var packageslist = new SelectList(packages, "Id", "Name");
+
+                            @Html.DropDownListFor(i => i.PackageId, packageslist, new {@class = "form-control"})
+                            @Html.ValidationMessageFor(m => m.PackageId, "", new {@class = "text-danger"})
+                        }
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.TfsBranchName, new {@class = "col-md-5 control-label "})
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(m => m.TfsBranchName, new {@class = "form-control"})
+                        @Html.ValidationMessageFor(m => m.TfsBranchName, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.TfsChangeSet, new {@class = "col-md-5 control-label "})
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(m => m.TfsChangeSet, new {@class = "form-control"})
+                        @Html.ValidationMessageFor(m => m.TfsChangeSet, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.VersionRequested, new {@class = "col-md-5 control-label "})
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(m => m.VersionRequested, new {@class = "form-control"})
+                        @Html.ValidationMessageFor(m => m.VersionRequested, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Description, new {@class = "col-md-5 control-label"})
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(m => m.Description, new {@class = "form-control"})
+                        @Html.ValidationMessageFor(m => m.Description, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-5 col-md-10">
+                        <input type="submit" value="Submit request" class="btn btn-default btn-primary"/>
+                        <input type="button" id="btn1" value="Display requests" class="btn btn-default btn-success"/>
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+</div>
+
+<div class="row">
+    
+    <div id="display">
+
+    </div>
+
+</div>
+
+@section Scripts {
+
+ 
+<script type="text/javascript">
+    $(document)
+        .ready(function() {
+            $('#btn1')
+                .click(function() {
+                    var serviceUrl = '/Request/Displayrequest';
+
+                    $.ajax({
+                        type: "GET",
+                        url: serviceUrl,
+                        contentType: "application/html; charset=utf-8",
+                        dataType: "html",
+                        success: successFunc,
+                        error: errorFunc
+                    });
+
+                    function successFunc(data) {
+                       $('#display').html(data);
+                    }
+
+                    function errorFunc() {
+                        alert('error');
+                    }
+                });
+            });
+</script>
+}
+
+

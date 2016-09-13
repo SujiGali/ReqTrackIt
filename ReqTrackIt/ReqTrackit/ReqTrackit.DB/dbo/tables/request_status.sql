@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[request_status]
+(
+	[Id] INT IDENTITY(2000,1) NOT NULL PRIMARY KEY, 
+    [Name] NVARCHAR(50) NOT NULL
+)

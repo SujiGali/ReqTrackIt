@@ -1,0 +1,32 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       [dbo].[nuget_request_tracker]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       The column [dbo].[nuget_request_tracker].[DetailsId] on table [dbo].[nuget_request_tracker] must be added, but the
+         column has no default value and does not allow NULL values. If the table contains data, the ALTER script will not work.
+         To avoid this issue you must either: add a default value to the column, mark it as allowing NULL values, or enable the
+         generation of smart-defaults as a deployment option.
+
+** User actions
+     Drop
+       [dbo].[FK_request_tracker_nuget_request_tracker] (Foreign Key)
+     Table rebuild
+       [dbo].[nuget_request_tracker] (Table)
+     Alter
+       [dbo].[request_tracker] (Table)
+     Create
+       Unique Constraint: unnamed constraint on [dbo].[request_tracker] (Unique Constraint)
+       [dbo].[FK_nuget_request_tracker_request_tracker] (Foreign Key)
+
+** Supporting actions
+     Drop
+       [dbo].[FK_nuget_request_tracker_package_details] (Foreign Key)
+     Create
+       [dbo].[FK_nuget_request_tracker_package_details] (Foreign Key)
+
+The column [dbo].[nuget_request_tracker].[DetailsId] on table [dbo].[nuget_request_tracker] must be added, but the column has no default value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+

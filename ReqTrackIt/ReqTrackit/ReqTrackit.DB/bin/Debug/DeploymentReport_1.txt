@@ -1,0 +1,44 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       [dbo].[package-details]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Alter
+       [dbo].[nuget-request-tracker] (Table)
+       [dbo].[request-status] (Table)
+       [dbo].[request-tracker] (Table)
+       [dbo].[request-type] (Table)
+     Table rebuild
+       [dbo].[package-details] (Table)
+
+** Supporting actions
+     Drop
+       [dbo].[FK_nuget-request-tracker_package-details] (Foreign Key)
+       [dbo].[FK_request-tracker_nuget-request-tracker] (Foreign Key)
+       [dbo].[FK_request-tracker_request-status] (Foreign Key)
+       [dbo].[FK_request-tracker_request-type] (Foreign Key)
+     Create
+       [dbo].[FK_nuget-request-tracker_package-details] (Foreign Key)
+       [dbo].[FK_request-tracker_nuget-request-tracker] (Foreign Key)
+       [dbo].[FK_request-tracker_request-status] (Foreign Key)
+       [dbo].[FK_request-tracker_request-type] (Foreign Key)
+
+The column PackageID on table [dbo].[nuget-request-tracker] must be changed from NULL to NOT NULL. If the table contains data, the ALTER script may not work. To avoid this issue, you must add values to this column for all rows or mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+The column TFS-changeset on table [dbo].[nuget-request-tracker] must be changed from NULL to NOT NULL. If the table contains data, the ALTER script may not work. To avoid this issue, you must add values to this column for all rows or mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+The column Version-requested on table [dbo].[nuget-request-tracker] must be changed from NULL to NOT NULL. If the table contains data, the ALTER script may not work. To avoid this issue, you must add values to this column for all rows or mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+The column Name on table [dbo].[package-details] must be changed from NULL to NOT NULL. If the table contains data, the ALTER script may not work. To avoid this issue, you must add values to this column for all rows or mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+The column Version on table [dbo].[package-details] must be changed from NULL to NOT NULL. If the table contains data, the ALTER script may not work. To avoid this issue, you must add values to this column for all rows or mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+The column Name on table [dbo].[request-status] must be changed from NULL to NOT NULL. If the table contains data, the ALTER script may not work. To avoid this issue, you must add values to this column for all rows or mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+The column Date-requested on table [dbo].[request-tracker] must be changed from NULL to NOT NULL. If the table contains data, the ALTER script may not work. To avoid this issue, you must add values to this column for all rows or mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+The column DetailsID on table [dbo].[request-tracker] must be changed from NULL to NOT NULL. If the table contains data, the ALTER script may not work. To avoid this issue, you must add values to this column for all rows or mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+The column StatusID on table [dbo].[request-tracker] must be changed from NULL to NOT NULL. If the table contains data, the ALTER script may not work. To avoid this issue, you must add values to this column for all rows or mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+The column TypeID on table [dbo].[request-tracker] must be changed from NULL to NOT NULL. If the table contains data, the ALTER script may not work. To avoid this issue, you must add values to this column for all rows or mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+The column UserID on table [dbo].[request-tracker] must be changed from NULL to NOT NULL. If the table contains data, the ALTER script may not work. To avoid this issue, you must add values to this column for all rows or mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+The column Name on table [dbo].[request-type] must be changed from NULL to NOT NULL. If the table contains data, the ALTER script may not work. To avoid this issue, you must add values to this column for all rows or mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="1a7ca900-bf2c-4bad-b5ff-7e31f5593ea6" ChangeDateTime="05/20/2016 22:07:09">
+    <Property Name="ElementName" Value="[dbo].[package-details].[Date-completed]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[package-details]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Description" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9d97fed9-9ba7-4799-806d-b32323af0d4b" ChangeDateTime="05/20/2016 22:08:57">
+    <Property Name="ElementName" Value="[dbo].[nuget-request-tracker].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[nuget-request-tracker]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="packageID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="911ac3a4-9d74-423f-b78c-1a5c3a8c47fa" ChangeDateTime="05/20/2016 22:09:11">
+    <Property Name="ElementName" Value="[dbo].[nuget-request-tracker].[packageID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[nuget-request-tracker]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Id" />
+  </Operation>
+</Operations>

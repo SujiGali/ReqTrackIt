@@ -1,0 +1,9 @@
+H:\ReqTrackIt\ReqTrackit\ReqTrackit.DB\bin\Debug\ReqTrackit.DB.dacpac
+H:\ReqTrackIt\ReqTrackit\ReqTrackit.DB\bin\Debug\ReqTrackit.DB.dll
+H:\ReqTrackIt\ReqTrackit\ReqTrackit.DB\bin\Debug\ReqTrackit.DB.pdb
+H:\ReqTrackIt\ReqTrackit\ReqTrackit.DB\obj\Debug\ReqTrackit.DB.dll
+H:\ReqTrackIt\ReqTrackit\ReqTrackit.DB\obj\Debug\ReqTrackit.DB.pdb
+H:\ReqTrackIt\ReqTrackit\ReqTrackit.DB\obj\Debug\Model.xml
+H:\ReqTrackIt\ReqTrackit\ReqTrackit.DB\obj\Debug\refactor.xml
+H:\ReqTrackIt\ReqTrackit\ReqTrackit.DB\obj\Debug\postdeploy.sql
+H:\ReqTrackIt\ReqTrackit\ReqTrackit.DB\obj\Debug\predeploy.sql

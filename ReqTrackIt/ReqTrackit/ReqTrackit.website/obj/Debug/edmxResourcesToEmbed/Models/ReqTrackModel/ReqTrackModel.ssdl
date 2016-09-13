@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ReqTrackit.Website.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="nuget_request_tracker">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PackageID" Type="int" Nullable="false" />
+    <Property Name="TFS_BranchName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TFS_changeset" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Version_requested" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="package_details">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Version" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Date_modified" Type="datetime" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="request_status">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="request_tracker">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeID" Type="int" Nullable="false" />
+    <Property Name="StatusID" Type="int" Nullable="false" />
+    <Property Name="DetailsID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Date_requested" Type="datetime" Nullable="false" />
+    <Property Name="Date_completed" Type="datetime" />
+  </EntityType>
+  <EntityType Name="request_type">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_nuget_request_tracker_package_details">
+    <End Role="package_details" Type="Self.package_details" Multiplicity="1" />
+    <End Role="nuget_request_tracker" Type="Self.nuget_request_tracker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="package_details">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="nuget_request_tracker">
+        <PropertyRef Name="PackageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_request_tracker_nuget_request_tracker">
+    <End Role="nuget_request_tracker" Type="Self.nuget_request_tracker" Multiplicity="1" />
+    <End Role="request_tracker" Type="Self.request_tracker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nuget_request_tracker">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="request_tracker">
+        <PropertyRef Name="DetailsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_request_tracker_request_status">
+    <End Role="request_status" Type="Self.request_status" Multiplicity="1" />
+    <End Role="request_tracker" Type="Self.request_tracker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="request_status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="request_tracker">
+        <PropertyRef Name="StatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_request_tracker_request_type">
+    <End Role="request_type" Type="Self.request_type" Multiplicity="1" />
+    <End Role="request_tracker" Type="Self.request_tracker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="request_type">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="request_tracker">
+        <PropertyRef Name="TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ReqTrackitWebsiteStoreContainer">
+    <EntitySet Name="nuget_request_tracker" EntityType="Self.nuget_request_tracker" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="package_details" EntityType="Self.package_details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="request_status" EntityType="Self.request_status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="request_tracker" EntityType="Self.request_tracker" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="request_type" EntityType="Self.request_type" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_nuget_request_tracker_package_details" Association="Self.FK_nuget_request_tracker_package_details">
+      <End Role="package_details" EntitySet="package_details" />
+      <End Role="nuget_request_tracker" EntitySet="nuget_request_tracker" />
+    </AssociationSet>
+    <AssociationSet Name="FK_request_tracker_nuget_request_tracker" Association="Self.FK_request_tracker_nuget_request_tracker">
+      <End Role="nuget_request_tracker" EntitySet="nuget_request_tracker" />
+      <End Role="request_tracker" EntitySet="request_tracker" />
+    </AssociationSet>
+    <AssociationSet Name="FK_request_tracker_request_status" Association="Self.FK_request_tracker_request_status">
+      <End Role="request_status" EntitySet="request_status" />
+      <End Role="request_tracker" EntitySet="request_tracker" />
+    </AssociationSet>
+    <AssociationSet Name="FK_request_tracker_request_type" Association="Self.FK_request_tracker_request_type">
+      <End Role="request_type" EntitySet="request_type" />
+      <End Role="request_tracker" EntitySet="request_tracker" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,50 @@
+﻿@model ReqTrackit.website.Models.ViewModels.RequestDetailsViewModel
+<div>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title" id="myModalLabel">RequestDetails</h4>
+    </div>
+
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PackageName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PackageName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TfsBranchName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TfsBranchName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TfsChangeSet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TfsChangeSet)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VersionRequested)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VersionRequested)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+    </dl>
+</div>  

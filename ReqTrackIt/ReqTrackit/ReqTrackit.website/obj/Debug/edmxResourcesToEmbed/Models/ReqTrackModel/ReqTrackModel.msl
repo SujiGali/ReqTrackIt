@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ReqTrackitWebsiteStoreContainer" CdmEntityContainer="ReqTrackEnities">
+    <EntitySetMapping Name="nuget_request_tracker">
+      <EntityTypeMapping TypeName="ReqTrackit.Website.nuget_request_tracker">
+        <MappingFragment StoreEntitySet="nuget_request_tracker">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Version_requested" ColumnName="Version_requested" />
+          <ScalarProperty Name="TFS_changeset" ColumnName="TFS_changeset" />
+          <ScalarProperty Name="TFS_BranchName" ColumnName="TFS_BranchName" />
+          <ScalarProperty Name="PackageID" ColumnName="PackageID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="package_details">
+      <EntityTypeMapping TypeName="ReqTrackit.Website.package_details">
+        <MappingFragment StoreEntitySet="package_details">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Date_modified" ColumnName="Date_modified" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="request_status">
+      <EntityTypeMapping TypeName="ReqTrackit.Website.request_status">
+        <MappingFragment StoreEntitySet="request_status">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="request_tracker">
+      <EntityTypeMapping TypeName="ReqTrackit.Website.request_tracker">
+        <MappingFragment StoreEntitySet="request_tracker">
+          <ScalarProperty Name="Date_completed" ColumnName="Date_completed" />
+          <ScalarProperty Name="Date_requested" ColumnName="Date_requested" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="DetailsID" ColumnName="DetailsID" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="request_type">
+      <EntityTypeMapping TypeName="ReqTrackit.Website.request_type">
+        <MappingFragment StoreEntitySet="request_type">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

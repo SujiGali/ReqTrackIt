@@ -1,0 +1,33 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       [dbo].[nuget_request_tracker]
+       [dbo].[package_details]
+       [dbo].[request_status]
+       [dbo].[request_tracker]
+       [dbo].[request_type]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Table rebuild
+       [dbo].[nuget_request_tracker] (Table)
+       [dbo].[package_details] (Table)
+       [dbo].[request_status] (Table)
+       [dbo].[request_tracker] (Table)
+       [dbo].[request_type] (Table)
+
+** Supporting actions
+     Drop
+       [dbo].[FK_nuget_request_tracker_package_details] (Foreign Key)
+       [dbo].[FK_request_tracker_nuget_request_tracker] (Foreign Key)
+       [dbo].[FK_request_tracker_request_status] (Foreign Key)
+       [dbo].[FK_request_tracker_request_type] (Foreign Key)
+     Create
+       [dbo].[FK_nuget_request_tracker_package_details] (Foreign Key)
+       [dbo].[FK_request_tracker_nuget_request_tracker] (Foreign Key)
+       [dbo].[FK_request_tracker_request_status] (Foreign Key)
+       [dbo].[FK_request_tracker_request_type] (Foreign Key)

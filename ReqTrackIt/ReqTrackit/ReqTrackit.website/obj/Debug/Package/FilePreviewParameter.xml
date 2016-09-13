@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="reqtrack-it" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^H:\\ReqTrackIt\\ReqTrackit\\ReqTrackit\.website\\obj\\Debug\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^H:\\ReqTrackIt\\ReqTrackit\\ReqTrackit\.website\\obj\\Debug\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=reqtrackitserver.database.windows.net;Initial Catalog=reqtrackit-identitydb;Persist Security Info=False;User ID=req_admin;Password=trackit@123;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False" tags="">
+    <parameterEntry kind="XmlFile" scope="H:\\ReqTrackIt\\ReqTrackit\\ReqTrackit\.website\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="ReqTrackEnities-Web.config Connection String" description="" value="metadata=res://*/Models.ReqTrackModel.ReqTrackModel.csdl|res://*/Models.ReqTrackModel.ReqTrackModel.ssdl|res://*/Models.ReqTrackModel.ReqTrackModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=reqtrackitserver.database.windows.net;initial catalog=reqtrackit-webdb;persist security info=True;user id=req_admin;password=trackit@123;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="H:\\ReqTrackIt\\ReqTrackit\\ReqTrackit\.website\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ReqTrackEnities']/@connectionString" />
+  </parameter>
+</parameters>

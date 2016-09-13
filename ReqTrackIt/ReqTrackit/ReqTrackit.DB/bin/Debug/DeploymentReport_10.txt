@@ -1,0 +1,26 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       [dbo].[nuget_request_tracker]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       The column [dbo].[nuget_request_tracker].[DetailsId] is being dropped, data loss could occur.
+
+** User actions
+     Drop
+       [dbo].[FK_nuget_request_tracker_request_tracker] (Foreign Key)
+     Table rebuild
+       [dbo].[nuget_request_tracker] (Table)
+     Create
+       [dbo].[FK_request_tracker_nuget_request_tracker] (Foreign Key)
+
+** Supporting actions
+     Drop
+       [dbo].[FK_nuget_request_tracker_package_details] (Foreign Key)
+     Create
+       [dbo].[FK_nuget_request_tracker_package_details] (Foreign Key)
+
+The column [dbo].[nuget_request_tracker].[DetailsId] is being dropped, data loss could occur.
+

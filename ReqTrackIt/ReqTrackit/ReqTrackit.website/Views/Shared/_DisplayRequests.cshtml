@@ -1,0 +1,110 @@
+﻿@using ReqTrackit.website.Models.ReqTrackModel
+@model IEnumerable<ReqTrackit.website.Models.ViewModels.RequestViewModel>
+
+<h3 align="center">Your Requests!!!</h3>
+<div class="table-responsive">
+    <table class="table table-bordered table-hovered table-striped">
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.RequestId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.RequestType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.PackageName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.DateRequested)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.DateCompleted)
+            </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @{
+            foreach (var i in Model)
+            {
+                <tr>
+                    <td>
+                        <a id="anchorDetail" href="#" data-id="@i.RequestId">@Html.DisplayName(i.RequestId.ToString())</a>
+                    </td>
+                    <td>
+                        @Html.DisplayName(i.RequestType)
+                    </td>
+                    <td>
+                        @Html.DisplayName(i.PackageName)
+                    </td>
+                    <td>
+                        @Html.DisplayName(i.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayName(i.DateRequested.ToString())
+                    </td>
+                    <td>
+                        @Html.DisplayName(i.DateCompleted.ToString())
+                    </td>
+
+                </tr>
+            }
+        }
+        </tbody>
+
+    </table>
+    <div id="myModal" class="modal">
+        <div class="modal-dialog">
+            <div id="myModalContent" class="modal-content">
+                
+            </div>
+        </div>
+
+    </div>
+</div>  
+
+
+
+    <script type="text/javascript">
+        $(document)
+            .ready(function () {
+                $("#anchorDetail")
+                    .click(function () {
+                        var serviceUrl = '/Request/RequestDetails';
+                        var $buttonClicked = $(this);
+                        var id = $buttonClicked.attr('data-id');
+                        var options = { "backdrop": "static", keyboard: true };
+                        $.ajax({
+                            type: "GET",
+                            url: serviceUrl,
+                            contentType: "application/html; charset=utf-8",
+                            data: { "requestid": id },
+                            dataType: "html",
+                            success: successFunc,
+                            error: errorFunc
+                        });
+
+                        function successFunc(data) {
+                            $('#myModalContent').html(data);
+                            $('#myModal').modal(options);
+                            $('#myModal').modal('show');
+                        }
+
+                        function errorFunc() {
+                            alert('error');
+                        }
+                    });
+                $("#closbtn")
+                    .click(function() {
+                        $('#myModal').modal('hide');
+                    });
+
+            });
+    </script>
+
+
+

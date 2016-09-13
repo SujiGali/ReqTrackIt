@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="51d9f54d42624a329c4e75e0fa0c2569" Name="Diagram1">
+        <EntityTypeShape EntityType="ReqTrackit.Website.nuget_request_tracker" Width="1.5" PointX="3" PointY="1.125" />
+        <EntityTypeShape EntityType="ReqTrackit.Website.package_details" Width="1.5" PointX="0.75" PointY="1.375" />
+        <EntityTypeShape EntityType="ReqTrackit.Website.request_status" Width="1.5" PointX="3" PointY="4.75" />
+        <EntityTypeShape EntityType="ReqTrackit.Website.request_tracker" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="ReqTrackit.Website.request_type" Width="1.5" PointX="3" PointY="7.125" />
+        <AssociationConnector Association="ReqTrackit.Website.FK_nuget_request_tracker_package_details" />
+        <AssociationConnector Association="ReqTrackit.Website.FK_request_tracker_nuget_request_tracker" />
+        <AssociationConnector Association="ReqTrackit.Website.FK_request_tracker_request_status" />
+        <AssociationConnector Association="ReqTrackit.Website.FK_request_tracker_request_type" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
